@@ -1,0 +1,405 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E9DDC1F1C205A5800814BDB /* Future.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9DDC1E1C205A5800814BDB /* Future.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E9DDC261C205A5800814BDB /* Future.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9DDC1B1C205A5800814BDB /* Future.framework */; };
+		3E9DDC2B1C205A5800814BDB /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DDC2A1C205A5800814BDB /* FutureTests.swift */; };
+		3E9DDC361C205A7900814BDB /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DDC351C205A7900814BDB /* Future.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E9DDC271C205A5800814BDB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E9DDC121C205A5800814BDB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E9DDC1A1C205A5800814BDB;
+			remoteInfo = Future;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E9DDC1B1C205A5800814BDB /* Future.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Future.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9DDC1E1C205A5800814BDB /* Future.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Future.h; sourceTree = "<group>"; };
+		3E9DDC201C205A5800814BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E9DDC251C205A5800814BDB /* FutureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FutureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9DDC2A1C205A5800814BDB /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
+		3E9DDC2C1C205A5800814BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E9DDC351C205A7900814BDB /* Future.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E9DDC171C205A5800814BDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E9DDC221C205A5800814BDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9DDC261C205A5800814BDB /* Future.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E9DDC111C205A5800814BDB = {
+			isa = PBXGroup;
+			children = (
+				3E9DDC1D1C205A5800814BDB /* Future */,
+				3E9DDC291C205A5800814BDB /* FutureTests */,
+				3E9DDC1C1C205A5800814BDB /* Products */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+		};
+		3E9DDC1C1C205A5800814BDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E9DDC1B1C205A5800814BDB /* Future.framework */,
+				3E9DDC251C205A5800814BDB /* FutureTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E9DDC1D1C205A5800814BDB /* Future */ = {
+			isa = PBXGroup;
+			children = (
+				3E9DDC1E1C205A5800814BDB /* Future.h */,
+				3E9DDC201C205A5800814BDB /* Info.plist */,
+				3E9DDC351C205A7900814BDB /* Future.swift */,
+			);
+			path = Future;
+			sourceTree = "<group>";
+		};
+		3E9DDC291C205A5800814BDB /* FutureTests */ = {
+			isa = PBXGroup;
+			children = (
+				3E9DDC2A1C205A5800814BDB /* FutureTests.swift */,
+				3E9DDC2C1C205A5800814BDB /* Info.plist */,
+			);
+			path = FutureTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3E9DDC181C205A5800814BDB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9DDC1F1C205A5800814BDB /* Future.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3E9DDC1A1C205A5800814BDB /* Future */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E9DDC2F1C205A5800814BDB /* Build configuration list for PBXNativeTarget "Future" */;
+			buildPhases = (
+				3E9DDC161C205A5800814BDB /* Sources */,
+				3E9DDC171C205A5800814BDB /* Frameworks */,
+				3E9DDC181C205A5800814BDB /* Headers */,
+				3E9DDC191C205A5800814BDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Future;
+			productName = Future;
+			productReference = 3E9DDC1B1C205A5800814BDB /* Future.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3E9DDC241C205A5800814BDB /* FutureTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E9DDC321C205A5800814BDB /* Build configuration list for PBXNativeTarget "FutureTests" */;
+			buildPhases = (
+				3E9DDC211C205A5800814BDB /* Sources */,
+				3E9DDC221C205A5800814BDB /* Frameworks */,
+				3E9DDC231C205A5800814BDB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E9DDC281C205A5800814BDB /* PBXTargetDependency */,
+			);
+			name = FutureTests;
+			productName = FutureTests;
+			productReference = 3E9DDC251C205A5800814BDB /* FutureTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E9DDC121C205A5800814BDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Nulaq;
+				TargetAttributes = {
+					3E9DDC1A1C205A5800814BDB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					3E9DDC241C205A5800814BDB = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 3E9DDC151C205A5800814BDB /* Build configuration list for PBXProject "Future" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3E9DDC111C205A5800814BDB;
+			productRefGroup = 3E9DDC1C1C205A5800814BDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E9DDC1A1C205A5800814BDB /* Future */,
+				3E9DDC241C205A5800814BDB /* FutureTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E9DDC191C205A5800814BDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E9DDC231C205A5800814BDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E9DDC161C205A5800814BDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9DDC361C205A7900814BDB /* Future.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E9DDC211C205A5800814BDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9DDC2B1C205A5800814BDB /* FutureTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E9DDC281C205A5800814BDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E9DDC1A1C205A5800814BDB /* Future */;
+			targetProxy = 3E9DDC271C205A5800814BDB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3E9DDC2D1C205A5800814BDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3E9DDC2E1C205A5800814BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3E9DDC301C205A5800814BDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Future/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulaq.Future;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3E9DDC311C205A5800814BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Future/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulaq.Future;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3E9DDC331C205A5800814BDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FutureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulaq.FutureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3E9DDC341C205A5800814BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = FutureTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nulaq.FutureTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E9DDC151C205A5800814BDB /* Build configuration list for PBXProject "Future" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E9DDC2D1C205A5800814BDB /* Debug */,
+				3E9DDC2E1C205A5800814BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E9DDC2F1C205A5800814BDB /* Build configuration list for PBXNativeTarget "Future" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E9DDC301C205A5800814BDB /* Debug */,
+				3E9DDC311C205A5800814BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E9DDC321C205A5800814BDB /* Build configuration list for PBXNativeTarget "FutureTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E9DDC331C205A5800814BDB /* Debug */,
+				3E9DDC341C205A5800814BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E9DDC121C205A5800814BDB /* Project object */;
+}
