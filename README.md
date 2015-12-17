@@ -10,7 +10,7 @@ In it's simplest form, we can use a Future for time consuming CPU work:
 let future = Future<Double>() { return estimateπ() }
 future.whenSuccess() { print("π ≅ \($0)") }
 ```
-This tricial example show how a Future splits the creation of the value and processing its result into two seperate parts that are both asynchronous.
+This trivial example shows how a Future splits the creation of the value and processing its result into two seperate parts that are both asynchronous.
 
 A common application of a Future is to wrap asynchronous API, such as network API. For this we use a Future-Promise pair:
 ```swift

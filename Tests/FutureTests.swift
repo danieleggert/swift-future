@@ -52,47 +52,6 @@ class FutureTests: XCTestCase {
     waitForExpectationsWithTimeout(0.1, handler: nil)
   }
   
-  func testThatSuccessGetsCalled() {
-    // Given
-    let f = Future<Int>() { 42 }
-    let expectation = expectationWithDescription("call result handler")
-    
-    // When
-    f.whenSuccess() {
-      XCTAssertEqual($0, 42)
-      expectation.fulfill()
-    }
-    f.whenError() {
-      XCTFail("\($0)")
-      expectation.fulfill()
-    }
-    
-    // Then
-    waitForExpectationsWithTimeout(0.1, handler: nil)
-  }
-  
-  func testThatErrorGetsCalled() {
-    // Given
-    let f = Future<Int>() { throw FutureTestsError.ErrorA }
-    let expectation = expectationWithDescription("call result handler")
-    
-    // When
-    f.whenSuccess() {
-      XCTFail("\($0)")
-      expectation.fulfill()
-    }
-    f.whenError() {
-      if case FutureTestsError.ErrorA = $0 {
-      } else {
-        XCTFail("\($0)")
-      }
-      expectation.fulfill()
-    }
-    
-    // Then
-    waitForExpectationsWithTimeout(0.1, handler: nil)
-  }
-  
   func testThatFutureGetsEvaluatedOnlyOnce() {
     // Given
     var c = Int32()

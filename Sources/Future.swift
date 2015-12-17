@@ -37,14 +37,14 @@ public final class Future<A> {
   /// Future which evalues to the result of the given closure `f` (the *promise*).
   ///
   /// Optionally passing a queue will cause `f` to get called on that queue. Otherwise the global concurrent queue with default QoS will be used.
-  public init(queue: dispatch_queue_t = defaultQueue(), f: () throws -> A) {
-    self.queue = queue
+  public init(executionContext: ExecutionContext = .DefaultContext, f: () throws -> A) {
+    self.queue = executionContext.queue
     execute = { [unowned self] in
       dispatch_once(&self.oncePredicate) {
         dispatch_async(self.queue, self.promise)
       }
     }
-    promise = dispatch_block_create(DISPATCH_BLOCK_DETACHED) { [unowned self] in
+    promise = executionContext.createBlock() { [unowned self] in
       do {
         self.result = .Success(try f())
       } catch let e {
@@ -55,11 +55,11 @@ public final class Future<A> {
   /// Create a Future and Promise pair.
   ///
   /// Completing the returned promise fulfills the returned future. This is useful for creating a `Future` that wraps API with a callback handler / completion block.
-  public static func createPromise() -> (Future<A>,Promise<A>) {
-    let f = Future<A>(queue: defaultQueue())
+  public static func createPromise(executionContext: ExecutionContext = .DefaultContext) -> (Future<A>,Promise<A>) {
+    let f = Future<A>(executionContext: executionContext)
     f.execute = {}
     var result: FutureResult<A>? = nil
-    f.promise = dispatch_block_create(DISPATCH_BLOCK_DETACHED) { [unowned f] in
+    f.promise = executionContext.createBlock() { [unowned f] in
       f.result = result
     }
     let setResult = { [weak f] (r: FutureResult<A>) -> () in
@@ -82,15 +82,15 @@ public final class Future<A> {
   /// This closure will cause the future to get evaluated.
   private var execute: (() -> ())! = nil
   
-  private init(queue: dispatch_queue_t) {
-    self.queue = queue
+  private init(executionContext: ExecutionContext) {
+    self.queue = executionContext.queue
   }
   /// Given a future that returns type `B` create a future that returns type `A`.
-  private init<B>(queue: dispatch_queue_t, dependency: Future<B>, g: (B) throws -> A) {
-    self.queue = queue
+  private init<B>(executionContext: ExecutionContext, dependency: Future<B>, g: (B) throws -> A) {
+    self.queue = executionContext.queue
     // We store a mutable, optional value of the dependency. This allows us to release it, once we have evaluated it.
     var d = Optional.Some(dependency)
-    promise = dispatch_block_create(DISPATCH_BLOCK_DETACHED) { [unowned self] in
+    promise = executionContext.createBlock() { [unowned self] in
       guard let dd = d else {  fatalError("Future dependency nil before being evaluated.") }
       guard let dependencyResult = dd.result else { fatalError("Future completed, but has no result.") }
       d = nil
@@ -137,43 +137,31 @@ public enum FutureResult<A> {
 }
 
 extension Future {
-  /// Asynchronously access the value of the future.
-  ///
-  /// The passed in function `f` will get called with the successul result of the future's promise.
-  /// Optionally passing a queue will cause `f` to get called on that queue. Otherwise the global concurrent queue with default QoS will be used.
-  /// Note that the future will only get evaluated once. Subsequen calls will re-use the existing, evaluated value.
-  public func whenSuccess(queue: dispatch_queue_t = defaultQueue(), f: (A) -> ()) {
-    whenFulfilled(queue) {
-      if case let .Success(value) = $0 {
-        f(value)
-      }
-    }
-  }
-  /// Asynchronously access the error of the future.
-  ///
-  /// The passed in function `f` will get called with the error thrown by the future's promise.
-  /// Optionally passing a queue will cause `f` to get called on that queue. Otherwise the global concurrent queue with default QoS will be used.
-  /// Note that the future will only get evaluated once. Subsequen calls will re-use the existing, evaluated value.
-  public func whenError(queue: dispatch_queue_t = defaultQueue(), f: (ErrorType) -> ()) {
-    whenFulfilled(queue) {
-      if case let .Error(error) = $0 {
-        f(error)
-      }
-    }
-  }
   /// Asynchronously access the result of the future.
   ///
   /// The passed in function `f` will get called when the future is fullfilled, either with the resulting value or the resulting error.
+  ///
+  /// ````
+  /// f.whenFulfilled() {
+  ///   switch $0 {
+  ///   case .Success(let v):
+  ///     // handle value
+  ///   case .Error(let e):
+  ///     // handle error
+  ///   }
+  /// }
+  /// ````
+  ///
   /// Optionally passing a queue will cause `f` to get called on that queue. Otherwise the global concurrent queue with default QoS will be used.
   /// - note
   ///     The future will only get evaluated once. Subsequent calls will re-use the existing, evaluated value.
-  public func whenFulfilled(queue: dispatch_queue_t = defaultQueue(), f: (FutureResult<A>) -> ()) {
-    dispatch_block_notify(promise, queue) {
+  public func whenFulfilled(executionContext: ExecutionContext = .DefaultContext, f: (FutureResult<A>) -> ()) {
+    dispatch_block_notify(promise, executionContext.queue, executionContext.createBlock() {
       guard let a = self.result else {
         fatalError("Future completed, but has no result.")
       }
       f(a)
-    }
+    })
     execute()
   }
 }
@@ -182,17 +170,17 @@ extension Future {
   /// Create a new future which evalues to the result of the current one applied to the given closure `g`.
   /// Optionally passing a queue will cause `g` to get called on that queue. Otherwise the global concurrent queue with default QoS will be used.
   @warn_unused_result
-  public func map<T>(queue: dispatch_queue_t = defaultQueue(), g: (A) -> T) -> Future<T> {
-    return Future<T>(queue: queue, dependency: self, g: g)
+  public func map<T>(executionContext: ExecutionContext = .DefaultContext, g: (A) -> T) -> Future<T> {
+    return Future<T>(executionContext: executionContext, dependency: self, g: g)
   }
   
   @warn_unused_result
-  public func flatMap<T>(queue: dispatch_queue_t = defaultQueue(), g: (A) -> Future<T>) -> Future<T> {
+  public func flatMap<T>(executionContext: ExecutionContext = .DefaultContext, g: (A) -> Future<T>) -> Future<T> {
     fatalError("Not implemented")
   }
   
   @warn_unused_result
-  func combine<B, T>(queue: dispatch_queue_t = defaultQueue(), future: Future<B>, g: (A, B) -> T) -> Future<T> {
+  func combine<B, T>(executionContext: ExecutionContext = .DefaultContext, future: Future<B>, g: (A, B) -> T) -> Future<T> {
     fatalError("Not implemented")
   }
   
@@ -205,8 +193,4 @@ extension Future {
   public static func traverse<C: CollectionType, T>(f: (C.Generator.Element) -> T) -> Future<[T]> {
     fatalError("Not implemented")
   }
-}
-
-private func defaultQueue() -> dispatch_queue_t {
-  return dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)
 }
